@@ -20,6 +20,8 @@ class Dashboard extends HTMLElement {
             const StarCard = this.ownerDocument.createElement("my-card") as Card;
             StarCard.setAttribute(CardProps.name, data.name);
             StarCard.setAttribute(CardProps.birth_year, data.birth_year);
+            StarCard.setAttribute(CardProps.gender, data.gender);
+            StarCard.setAttribute(CardProps.height, data.height);
             this.shadowRoot?.appendChild(StarCard);
         });
 

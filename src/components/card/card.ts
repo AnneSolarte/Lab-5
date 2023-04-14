@@ -3,17 +3,23 @@ import styles from "./styles.css"
 export enum CardProps {
     "name" = "name",
     "birth_year" = "birth_year",
+    "gender" = "gender",
+    "height" = "height",
 
 }
 
 class Card extends HTMLElement {
     name?: string;
     birth_year?: string;
+    gender?: string;
+    height?: string;
 
     static get observedAttributes() {
         const attrs: Record<CardProps, null> = {
             birth_year: null,
             name: null,
+            gender: null,
+            height: null,
         };
         return Object.keys(attrs);
     }
@@ -52,8 +58,13 @@ class Card extends HTMLElement {
 
                 this.shadowRoot.innerHTML += `
                 <section class="cardSection">
-                    <h1 class="name">Name: ${this.name}</h1>
-                    <p class="birthYear">Birth Year: ${this.birth_year}</p>
+                    <img class="img" src="/img/Card.png">
+                    <div class="infoSection">
+                        <h1>Name: ${this.name}</h1>
+                        <p class="text">Height: ${this.height}</p>
+                        <p class="text">Gender: ${this.gender}</p>
+                        <p class="text">Birth Year: ${this.birth_year}</p>
+                    </div>
                 </section>
                 `;
             }
